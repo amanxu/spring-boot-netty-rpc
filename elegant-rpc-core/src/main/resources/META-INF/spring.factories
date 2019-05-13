@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.elegant.rpc.core.utils.SpringContextUtil,\
+com.elegant.rpc.core.utils.RpcHandlerBeanUtil

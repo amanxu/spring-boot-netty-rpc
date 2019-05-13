@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: elegant-rpc-example-server
+netty:
+  server:
+    bind-port: 8090
+    route-strategy:
+server:
+  port: 8800
