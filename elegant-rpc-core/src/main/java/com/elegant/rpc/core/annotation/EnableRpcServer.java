@@ -1,6 +1,7 @@
 package com.elegant.rpc.core.annotation;
 
 import com.elegant.rpc.core.config.NettyServerConfigProperties;
+import com.elegant.rpc.core.config.NettyServerConfiguration;
 import com.elegant.rpc.core.config.NettyServerStarter;
 import com.elegant.rpc.core.service.impl.RpcServerServiceImpl;
 import org.springframework.context.annotation.Import;
@@ -17,6 +18,6 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Import({NettyServerStarter.class, NettyServerConfigProperties.class, RpcServerServiceImpl.class})
+@Import(NettyServerConfiguration.class)
 public @interface EnableRpcServer {
 }

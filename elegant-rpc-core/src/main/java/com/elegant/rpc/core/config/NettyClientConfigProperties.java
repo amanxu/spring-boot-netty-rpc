@@ -1,7 +1,9 @@
 package com.elegant.rpc.core.config;
 
 import com.elegant.rpc.core.route.ChannelRouteStrategyEnum;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -12,6 +14,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @ConfigurationProperties(prefix = "netty.client")
 public class NettyClientConfigProperties {
 
