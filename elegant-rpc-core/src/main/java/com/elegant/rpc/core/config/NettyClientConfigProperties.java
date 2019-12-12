@@ -3,9 +3,7 @@ package com.elegant.rpc.core.config;
 import com.elegant.rpc.core.route.ChannelRouteStrategyEnum;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @description:
@@ -14,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Setter
 @Getter
-@Configuration
 @ConfigurationProperties(prefix = "netty.client")
 public class NettyClientConfigProperties {
 

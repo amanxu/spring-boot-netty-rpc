@@ -60,12 +60,12 @@ public class NettyClient {
             // 等待客户端链路关闭
             future.channel().closeFuture().sync();
         } catch (Exception e) {
+            log.error("Client connect server {}:{} fail;err:{}", host, port, e);
             try {
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e1) {
                 log.error("Netty Client InterruptedException:{}", e);
             }
-            log.warn("Client connect server {}:{} fail", host, port);
             connect();
         } finally {
             // 优雅退出，释放NIO线程组

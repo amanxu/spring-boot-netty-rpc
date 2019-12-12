@@ -1,9 +1,7 @@
 package com.elegant.rpc.core.model;
 
 import com.elegant.rpc.core.enums.MsgTypeEnum;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -14,7 +12,10 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
+@Builder
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class MessageContent implements Serializable {
 
     /**

@@ -4,10 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.elegant.rpc.core.enums.MsgTypeEnum;
 import com.elegant.rpc.core.model.ChannelMessage;
 import com.elegant.rpc.core.model.MessageContent;
-import com.elegant.rpc.core.proxy.RpcDynamicProxyHandler;
-import com.elegant.rpc.core.proxy.RpcHandlerRouter;
-import com.elegant.rpc.core.service.IRpcService;
-import com.elegant.rpc.core.utils.RpcHandlerBeanUtil;
 import com.elegant.rpc.core.utils.RpcServerChannelHolder;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -73,13 +69,8 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
             String hostName = (String) message.getData();
             RpcServerChannelHolder.putChannel(hostName, ctx.channel());
             log.info("执行器通道注册:{}", hostName);
-        } else if (MsgTypeEnum.CLIENT_FALL_BACK.getMsgType().equals(message.getMsgType())) {
-            log.info("客户端回调:{};{}", channelMessage.getCode(), channelMessage.getMsg());
         } else if (MsgTypeEnum.MSG_TRANSPORT.getMsgType().equals(message.getMsgType())) {
-            log.info("消息传输:{};{};{}", channelMessage.getCode(), channelMessage.getMsg(), JSON.toJSONString(message));
-            RpcHandlerRouter rpcHandlerRouter = new RpcHandlerRouter();
-            ChannelMessage chMsg = rpcHandlerRouter.handlerRoute(message);
-            ctx.writeAndFlush(chMsg);
+            log.info("消息传输；客户端触发成功, 触发结果:\n {}", JSON.toJSONString(channelMessage));
         }
     }
 

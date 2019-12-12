@@ -12,5 +12,5 @@ import java.lang.annotation.*;
 @Inherited
 public @interface RpcHandler {
 
-    String value() default "";
+    String value();
 }

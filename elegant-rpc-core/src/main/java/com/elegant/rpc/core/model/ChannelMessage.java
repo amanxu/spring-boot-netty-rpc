@@ -1,10 +1,7 @@
 package com.elegant.rpc.core.model;
 
 import com.elegant.rpc.core.enums.ErrorCodeEnum;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -15,6 +12,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
+@Builder
 @ToString
 @NoArgsConstructor
 public class ChannelMessage implements Serializable {
