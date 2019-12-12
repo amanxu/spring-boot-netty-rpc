@@ -3,7 +3,6 @@ package com.elegant.rpc.core.config;
 import com.elegant.rpc.core.client.NettyClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -11,14 +10,13 @@ import org.springframework.context.annotation.Configuration;
  * @author: xiaoxu.nie
  * @date: 2019-01-06 9:58
  */
-@Configuration
 public class NettyClientStarter implements CommandLineRunner {
 
     @Autowired
     private NettyClientConfigProperties nettyClientConfigProperties;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         startClient();
     }
 

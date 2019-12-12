@@ -12,8 +12,7 @@ public enum MsgTypeEnum {
 
     CHANNEL_REG(100001, "客户端通道注册"),
     HEART_CHECK(100002, "心跳检测"),
-    MSG_TRANSPORT(100003, "消息传输"),
-    CLIENT_FALL_BACK(100004, "CLIENT回调");
+    MSG_TRANSPORT(100003, "消息传输");
 
     private Integer msgType;
 

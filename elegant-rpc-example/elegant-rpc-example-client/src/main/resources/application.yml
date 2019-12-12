@@ -3,7 +3,7 @@ spring:
     name: elegant-rpc-example-client
 netty:
   client:
-    server-address: 192.168.62.236:8090
+    server-address: 192.168.60.5:8090
     register-name: elegant-rpc-example-client
     route-strategy:
 server:

@@ -1,8 +1,8 @@
 package com.elegant.rpc.core.annotation;
 
+import com.elegant.rpc.core.client.ContextRefreshedListener;
 import com.elegant.rpc.core.config.NettyClientConfigProperties;
 import com.elegant.rpc.core.config.NettyClientStarter;
-import com.elegant.rpc.core.service.impl.RpcClientServiceImpl;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -19,6 +19,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @EnableAsync
-@Import({NettyClientConfigProperties.class, NettyClientStarter.class, RpcClientServiceImpl.class})
+@Import({NettyClientConfigProperties.class, NettyClientStarter.class, ContextRefreshedListener.class})
 public @interface EnableRpcClient {
 }

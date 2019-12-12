@@ -7,7 +7,7 @@ import com.elegant.rpc.core.route.ChannelRouter;
 import com.elegant.rpc.core.service.IRpcServerService;
 import com.elegant.rpc.core.utils.RpcServerChannelHolder;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
  * @author: xiaoxu.nie
  * @date: 2019-01-18 11:37
  */
+@Slf4j
 @Service("rpcServerService ")
 public class RpcServerServiceImpl implements IRpcServerService {
 
@@ -26,12 +27,10 @@ public class RpcServerServiceImpl implements IRpcServerService {
     public void sendMsg(String hostName, ChannelMessage channelMessage) {
         ChannelRouter channelRouter = ChannelRouteStrategyEnum.getChannelByStrategy(nettyServerConfigProperties.getRouteStrategy());
         Channel channel = channelRouter.routeChannel(RpcServerChannelHolder.getChannelByHost(hostName));
-        if (channel.isActive()) {
-            ChannelFuture future = channel.writeAndFlush(channelMessage);
+        if (channel != null && channel.isActive()) {
+            channel.writeAndFlush(channelMessage);
         } else {
-            // 提升代码健壮性
             RpcServerChannelHolder.removeChannel(channel);
-            sendMsg(hostName, channelMessage);
         }
     }
 }
